@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "kursach-oop"
+version = "0.1.0"
+description = ""
+authors = ["rinat shelkov <rinarserov@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.lint.dependencies]
+mypy = "^1.8.0"
+black = "^23.12.1"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+# максимальная длина строки
+line-length = 119
+# файлы, которые не нужно форматировать
+exclude = '''
+(
+  /(
+      \.eggs         # исключить несколько общих каталогов в
+    | \.git          # корне проекта
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | dist
+  )/
+  | foo.py           # также отдельно исключить файл с именем foo.py в
+                     # корне проекта
+)
+'''
