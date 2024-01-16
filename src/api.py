@@ -33,9 +33,16 @@ class HeadHunterAPI(API):
 
     def get_vacancies(self) -> Any:
         """Метод получения файла json с помощью API- запроса"""
-        response = requests.get(HH_URL, params=self.params).json()  # Посылаем запрос к API
 
-        return response["items"]
+        try:
+            response = requests.get(HH_URL, params=self.params)  # Посылаем запрос к API
+            response.raise_for_status()
+            data = response.json()
+
+        except requests.exceptions.HTTPError as err:
+            return f"Ошибка запроса requests.get -> {err}"
+
+        return data["items"]
 
 
 class SuperJobAPI(API):
@@ -48,6 +55,11 @@ class SuperJobAPI(API):
 
     def get_vacancies(self) -> Any:
         """Метод получения файла json с помощью API- запроса"""
-        response = requests.get(SP_URL, headers=self.headers, params=self.params).json()  # Посылаем запрос к API
+        try:
+            response = requests.get(SP_URL, headers=self.headers, params=self.params)  # Посылаем запрос к API
+            response.raise_for_status()
+            data = response.json()
+        except requests.exceptions.HTTPError as err:
+            return f"Ошибка запроса requests.get -> {err}"
 
-        return response["objects"]
+        return data["objects"]

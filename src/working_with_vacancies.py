@@ -12,7 +12,7 @@ class Vacancy:
         """Метод валидации данных(проверка на None из апи запроса HeadHunter)"""
 
         if salary is None:
-            return 0
+            return "0"
         return salary
 
     def __eq__(self, other):
@@ -35,7 +35,7 @@ class Vacancy:
         return {
             "name_vacancies": self.name_vacancies,
             "url_vacancies": self.url_vacancies,
-            "wage": int(self.wage),
+            "wage": self.wage,
             "description": self.description,
         }
 
