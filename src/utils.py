@@ -2,7 +2,6 @@ from src.working_with_vacancies import Vacancy
 
 
 def create_list_dict_sj(vacancies: list[dict]) -> list[Vacancy]:
-
     """Создание списка экземпляров класса из API запроса - SuperJobAPI (json-Ответа)"""
 
     all_vacancies = [
@@ -18,7 +17,6 @@ def create_list_dict_sj(vacancies: list[dict]) -> list[Vacancy]:
 
 
 def create_list_dict_hh(vacancies: list[dict]) -> list[Vacancy]:
-
     """Создание списка экземпляров класса из API запроса - HeadHunterAPI(API) (json-Ответа)"""
 
     all_vacancies = [
