@@ -35,7 +35,7 @@ class HeadHunterAPI(API):
         """Метод получения файла json с помощью API- запроса"""
         response = requests.get(HH_URL, params=self.params).json()  # Посылаем запрос к API
 
-        return response
+        return response["items"]
 
 
 class SuperJobAPI(API):
@@ -50,4 +50,4 @@ class SuperJobAPI(API):
         """Метод получения файла json с помощью API- запроса"""
         response = requests.get(SP_URL, headers=self.headers, params=self.params).json()  # Посылаем запрос к API
 
-        return response
+        return response["objects"]
